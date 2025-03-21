@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Attendance Dashboard</title>
+    <title>Attendance System</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,73 +17,54 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
         h1 {
             text-align: center;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
+        .nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
             margin-top: 20px;
         }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: center;
-        }
-        th {
+        .nav a, .logout-btn {
+            display: block;
             background-color: #007bff;
             color: white;
-        }
-        .btn {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
+            padding: 10px;
             border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
         }
-        .btn:hover {
-            background-color: #218838;
+        .nav a:hover, .logout-btn:hover {
+            background-color: #0056b3;
+        }
+        .logout-btn {
+            background-color: #dc3545;
+            margin-top: 20px;
+            border: none;
+        }
+        .logout-btn:hover {
+            background-color: #c82333;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Student Attendance Dashboard</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Attendance</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="studentTable">
-                <tr>
-                    <td>Alice Johnson</td>
-                    <td class="status">Present</td>
-                    <td><button class="btn" onclick="toggleAttendance(this)">Toggle</button></td>
-                </tr>
-                <tr>
-                    <td>Bob Smith</td>
-                    <td class="status">Absent</td>
-                    <td><button class="btn" onclick="toggleAttendance(this)">Toggle</button></td>
-                </tr>
-                <tr>
-                    <td>Charlie Brown</td>
-                    <td class="status">Present</td>
-                    <td><button class="btn" onclick="toggleAttendance(this)">Toggle</button></td>
-                </tr>
-            </tbody>
-        </table>
+        <h1>Attendance System</h1>
+        <div class="nav">
+            <a href="student_dashboard.html">Student Attendance Dashboard</a>
+            <a href="teacher_dashboard.html">Teacher Attendance Dashboard</a>
+            <a href="attendance_hub.html">Main Attendance Hub</a>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
     </div>
 
     <script>
-        function toggleAttendance(button) {
-            let row = button.parentElement.parentElement;
-            let statusCell = row.querySelector(".status");
-            statusCell.textContent = statusCell.textContent === "Present" ? "Absent" : "Present";
+        function logout() {
+            window.location.href = "login.html";
         }
     </script>
 </body>
